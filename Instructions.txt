@@ -1,0 +1,23 @@
+Usage - The program file is called "annotation.py". Please provide the video path as an argument.
+
+Given a video that includes pedestrians, one person is marked on a frame using a bounding
+rectangle. Then, the program extracts feature points and locates the same pedestrian on following
+frames. The program corrects the location and size of the boundog box on any frame.
+Whenever the detected pedestrian leaves the frame, the program detects anew pedestrian to follow.
+
+
+Steps:
+1. Detect a pedestrian in the first frame - using hog detector
+2. Extract feature points (read corners) - using ShiTomasi corner detection
+3. Compare the previous and current frames, and adjust the bounding box according to the points' locations
+
+
+Notes:
+1. It is possible to adjust the feature_params for the ShiTomasi corner detection, it can improve the quality of the pedestrian tracking, depending on the video.
+
+2. A sample video is included to test the program.
+
+3. There is another folder called "tracker" that contains another code file that does not extract feature points but rather uses TrackerCSRT to track the pedestrian, and also a two sample videos.
+ We've decided to include it as well as the results seem slightly better. It's called "tracker.py" . You are welcome to examine it for reference.
+* In this vesrion a name of a video as an argument is required
+** code steps are described as comments on top of the file "tracker.py"
